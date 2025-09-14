@@ -50,7 +50,7 @@
 		#container{
 			width: 100vw;
 			height: 100vh;
-			background: white;
+			background: #202020;
 			scrollbar-width:none;
 			overflow-y: scroll;
 		}
@@ -78,116 +78,10 @@
 </body>
 <script src="index.js"></script>
 <script>
-	var banner = new FlexLayout({width:"95vw", height:"8vh", justify:"space-between", style:{"paddingTop":"0", "boxSizing":"border-box","margin":"15px 2.5vw"}});
-	var back = new Button({"icon":"arrow_back_ios",bgColor:"transparent",iconColor:"#333333",vibrate:0,radius:["100%"],iconSize:"20px",inset:["0px"],style:{"opacity":"0", "pointerEvents":"none", transition:".5s"}});
-	back.elem.addEventListener("click",gb);
-	banner.append(back.html());
-	banner.append(new Layout({img:"adidas.png", width:"6vh", height:"6vh"}).html());
-	banner.append(new Layout({width:"6vh", height:"6vh"}).html());
-	$("#container").appendChild(banner.html());
-	var sh = [];
-	var scr = new Layout({width:"100vw", height:"78vh", style:{"overflow-x":"hidden", "overflow-y":"scroll", "padding":"0px","boxSizing":"border-box","scrollBehavior":"smooth"}});
-	var data = [["AIR MAX 90 EZ BLACK","lavender",["270","150"]],["Adidas NMD_R1","#D8BFD8",["360","195"]],["Puma RS-X","grey",["320","199"]],["New Balance 997H","#ccffcc",["260","120"]]];
-	data.forEach((val,index) => {
-		let box = new FlexLayout({width:"calc(100% - 30px)", direction:"column", alignItems:"center", style:{"padding":"5px 100px","boxSizing":"border-box",transition:".5s"},bgColor:val[1],radius:["10px"],margin:["0","15px","15px"]});
-		box.elem.addEventListener("click",() => {
-			sh = [index,$("#container").children[1].scrollTop + "px"];
-			box.elem.scrollIntoView({ behaviour: "smooth" });
-			Object.assign(box.elem.style, {width:"100%", margin:"0 0 15px", borderRadius:"0"});
-			pop(index);
-		});
-		box.append(new Layout({img:"images/s" + (index + 1) + ".png", width:"30vh", height:"30vh",style:{"filter":"drop-shadow(-1px 3px 50px #333333)"}}).html());
-		box.append(new TextView({ margin:["20px","0","10px","0"], text:val[0],fontColor:"#333333",fontSize:"15px",style:{width:"60vw","whiteSpace":"no-wrap",textAlign:"center", height:"20px","overflow":"hidden",transition:".5s ease"}}).html());
-		let grp = new FlexLayout({height:"10vh",width:"80vw", justify:"space-between", alignItems:"center",margin:["5px", "0", "0px"],style:{"overflow":"hidden",transition:".5s ease"}});
-		grp.append(new Button({"icon":"favorite_outline",bgColor:"transparent",iconColor:"#333333",vibrate:0,radius:["100%"]}).html());
-		grp.append(new TextView({ text:"<strike style='font-size:13px;color:red'>$" + val[2][0] + "</strike><br>$" + val[2][1],fontColor:"black",fontSize:"20px",fontFamily:"nevis",style:{"whiteSpace":"no-wrap",textAlign:"center",transform:"translateY(-5px)"}}).html());
-		grp.append(new Button({"icon":"add_shopping_cart",bgColor:"transparent",iconColor:"#333333",vibrate:0,radius:["100%"]}).html());
-		box.append(grp.html());
-		scr.append(box.html());
-	});
-	scr.append(new Layout({height:"60vh"}).html());
-	$("#container").appendChild(scr.html());
-	var footer = new NavigationFooter({items:[{"icon":"home"},{"icon":"search"},{"icon":"favorite_outline"},{"icon":"shopping_cart"},{"icon":"account_circle"}],bgColorNormal:"transparent",width:"100vw",inactiveColor:"#999999",bgColorActive:"transparent",activeColor:"black"});
-	footer.elem.children[0].children[0].style.fontSize = "25px";
-	footer.elem.children[1].children[0].style.fontSize = "25px";
-	footer.elem.children[2].children[0].style.fontSize = "25px";
-	footer.elem.children[3].children[0].style.fontSize = "25px";
-	footer.elem.children[4].children[0].style.fontSize = "25px";
-	$("#container").appendChild(footer.html());
-
-	let ht = (scr.elem.children[0].offsetHeight - 25 - scr.elem.children[0].children[1].offsetHeight - scr.elem.children[0].children[2].offsetHeight + 30) + "px";
-	var info = new Layout({width:"100vw",height:"calc(92vh - " + ht + ")", bgColor:"white", style:{pointerEvents:"none","boxSizing":"border-box","position":"fixed",top:/*"calc(8vh + " + ht + ")"*/"100vh",transition:".5s ease", opacity:0},inset:["20px"]});
-	var desc = new FlexLayout({width:"100%",justify:"space-between",style:{}});
-	desc.append(new TextView({ text:"AIR MAX 90 EZ BLACK",fontColor:"black",fontSize:"20px",fontFamily:"nevis",style:{"whiteSpace":"no-wrap",width:"40vw"}}).html());
-	desc.append(new TextView({ text:"<strike style='font-size:13px;color:red'>$" + 270 + "</strike><br>$" + 150,fontColor:"black",fontSize:"20px",fontFamily:"nevis",style:{"whiteSpace":"no-wrap",textAlign:"right"}}).html());
-	info.append(desc.html());
-	info.append(new TextView({ text:"AVAILABLE SIZES",fontColor:"#333333",fontSize:"16px",fontFamily:"calibri",margin:["30px","0","20px"],weight:"bolder"}).html());
-	var btnGrp = new FlexLayout({width:"100%",colGap:"20px"});
-	btnGrp.append(new TextView({text:"US 1",weight:"bolder",fontFamily:"calibri",fontSize:"14px"}).html());
-	btnGrp.append(new TextView({text:"US 2",weight:"bolder",fontFamily:"calibri",fontSize:"14px"}).html());
-	btnGrp.append(new TextView({text:"US 3",weight:"bolder",fontFamily:"calibri",fontSize:"14px"}).html());
-	btnGrp.append(new TextView({text:"US 4",weight:"bolder",fontFamily:"calibri",fontSize:"14px"}).html());
-	btnGrp.append(new TextView({text:"US 5",weight:"bolder",fontFamily:"calibri",fontSize:"14px"}).html());
-	info.append(btnGrp.html());
-	$("#container").appendChild(info.html());
-	var fbtn = new ZapButton({icon:"shopping_cart",bgColor:"#202020", bottom:"10vh", iconColor:"white", radius:["100%"],iconSize:"22px",width:"55px", height:"55px",style:{"transition":".5s"},right:"-25vw"});
-	fbtn.elem.addEventListener("click",fab);
-	$("#container").appendChild(fbtn.html());
-	info.append(new TextView({ text:"DESCRIPTION",fontColor:"#333333",fontSize:"16px",fontFamily:"calibri",margin:["50px","0","20px"],weight:"bolder"}).html());
-	info.append(new TextView({ text:"This is a brand new shoe in the world of genZ. Shoes of this brand can bring new opportunites to every secto and ok.",fontColor:"#333333",fontSize:"13px",margin:["20px","0","0px"],weight:"400"}).html());
-	var drop = new FlexLayout({direction:"column", alignItems:"center", width:"100vw",height:"70vh",style:{boxSizing:"border-box","position":"fixed","zIndex":"2","bottom":"-70vh",transition:".5s",opacity:0},radius:["20px"],bgColor:"white",inset:["20px"]});
-	var minfo = new FlexLayout({width:"100%",justify:"space-between",alignItems:"center",colGap:"50px"});
-	minfo.append(new Layout({img:"images/s1.png",width:"50%",style:{aspectRatio:"1/1", "filter":"drop-shadow(-1px 3px 50px #333333)"}}).html());
-	minfo.append(new TextView({ text:"AIR MAX 90 EZ BLACK<br><br><b style='color:black'>$160</b>",fontColor:"grey", fontFamily:"nevis", weight:"bolder",fontSize:"17px",style:{textAlign:"right"}}).html());
-	drop.append(minfo.html());
-	drop.append(new Button({icon:"pets", iconColor:"#333333", text:"SELECT SIZE", fontColor:"#333333", bgColor:"transparent",margin:["50px","0","0"],fontFamily:"calibri"}).html());
-	drop.append(new Chips({items:["US 6", "US 7", "US 8", "US 9", "US 10"], bgColorActive:"#202020", borderColorNormal:"#202020",fontColorActive:"#cccccc",margin:["30px","0","0"]}).html());
-	var sub = new Button({icon:"shopping_cart", iconColor:"white", text:"ADD TO CART", fontColor:"white", bgColor:"#202020",margin:["70px","0","0"],fontFamily:"calibri",radius:["50px"], inset:["15px","25px"]});
-	sub.elem.addEventListener("click",closem);
-	drop.append(sub.html());
-	$("#container").appendChild(drop.html());
-	var save = new Layout({width:"100vw", height:"100vh", style:{display:"flex", flexFlow:"column nowrap", alignItems:"center", position:"fixed",bottom:"0",backdropFilter:"blur(10px)"},bgColor:"rgba(255,255,255,0.7)"});
-	var finger = new Layout({width:"30vw", height:"30vw", img:"images/finger.png", margin:["30vh","0","50px"]});
-	finger.elem.animate([{
-		filter:"none"
-	},{
-		filter:"invert(.5)"
-	},{
-		filter:"none"
-	}],{
-		duration:500,
-		easing:"ease-out",
-		iterations: Infinity
-	});
-	save.append(finger.html());
-	save.append(new TextView({text:"SCAN FINGER<br>to pay", weight:"bolder", margin:["20vh","0","50px"], style:{textAlign:"center", fontWeight:"bolder"}}).html());
-	$("#container").appendChild(save.html());
-
-	function pop(index){
-		Object.assign(info.elem.style, {top:"calc(8vh + " + ht + ")", opacity:1, pointerEvents:"auto"});
-		fbtn.elem.style.right = "20px";
-		scr.elem.style.pointerEvents = "none";
-		Object.assign(back.elem.style, {"pointerEvents":"auto", "opacity":1});
-	}
-	function gb(){
-		Object.assign($("#container").children[1].children[sh[0]].style,{width:"calc(100% - 30px)", margin:"0 15px 15px", borderRadius:"10px"});
-		/*$("#container").children[1].scrollTo({
-		    top: sh[1],
-		    behavior: "smooth"
-		});*/
-		Object.assign(info.elem.style, {top:"100vh", opacity:0, pointerEvents:"none"});
-		fbtn.elem.style.right = "-20vw";
-		scr.elem.style.pointerEvents = "auto";
-		Object.assign(back.elem.style, {"pointerEvents":"none", "opacity":0});
-	}
-	function fab(){
-		Object.assign($(".screen").style, {opacity:.5});
-		Object.assign(drop.elem.style, {opacity:1, bottom:"0vh"});
-	}
-	function closem(){
-		Object.assign($(".screen").style, {opacity:0});
-		Object.assign(drop.elem.style, {opacity:0, bottom:"-70vh"});
-	}
+	var flex = new FlexLayout({width:"100vw", height:"100vh", justify:"center", alignItems:"center"});
+	var btn = new Button({text:"Hello World", vibrate:0});
+	flex.append(btn.html());
+	$("#container").appendChild(flex.html());
 </script>
 </html>
 
