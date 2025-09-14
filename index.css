@@ -1,3 +1,12 @@
+/*
+ Crysta UI Framework
+ Copyright (c) 2025 Ajay Kumar Sahu
+
+ Licensed under the Crysta UI Framework License v1.0
+ You may modify this code, but use is restricted to the AnvPy environment.
+ See the LICENSE file for details.
+*/
+
 @keyframes animate{
 	0%{ width:0;opacity:0.7 }
 	50%{ width:200%;opacity:0.35; }
@@ -814,4 +823,5 @@ video{
 	padding: 6px 12px;
 	font-family: manrope;
 	font-weight: 300;
+
 }
