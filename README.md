@@ -8,6 +8,14 @@ Crysta UI is a lightweight, modern UI framework for Python, built to power stunn
 - [x] Responsive to all kind of mobile screen
 - [x] Simple and Scalable
 
+## About Crysta
+Crysta is a UI framework built on top of the Web, designed to seamlessly integrate with Python. It enables Python code to run on a separate thread, resulting in improved performance and responsiveness.
+
+- The index files contain all the relevant classes along with their source code and styles.
+- The temp.html file serves as a basic application template that connects with the JavaScript files.
+
+Crysta provides a lightweight yet powerful foundation for building modern applications within the AnvPy ecosystem.
+
 ## License
 Crysta is open for study and modification, but *use is restricted exclusively to the AnvPy environment*.  
 See the [LICENSE](./LICENSE) file for full details.
