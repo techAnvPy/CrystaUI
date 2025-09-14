@@ -13,7 +13,7 @@ Crysta UI is a lightweight, modern UI framework for Python, built to power stunn
 - [x] Responsive to all kind of mobile screen
 - [x] Simple and Scalable
 
-## About Crysta
+## About Crysta UI
 Crysta is a UI framework built on top of the Web, designed to seamlessly integrate with Python. It enables Python code to run on a separate thread, resulting in improved performance and responsiveness.
 
 - The index files contain all the relevant classes along with their source code and styles.
