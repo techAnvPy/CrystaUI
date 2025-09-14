@@ -1,24 +1,21 @@
 Crysta UI Framework License v1.0
 
-Copyright © Amar Kumar Sahu, 2025
+Copyright © 2025, Amar Kumar Sahu
 
 Permission is hereby granted to any person obtaining a copy of this software (the “Software”) to view, study, and modify the source code, subject to the following conditions:
 
-1. Use Restriction
+Use Restriction
 The Software may only be used, executed, or deployed within the AnvPy environment. Use of the Software outside AnvPy is strictly prohibited without prior written permission from the copyright holder.
 
+Modifications
+You may modify the Software, but modified versions may only be used, executed, or deployed within AnvPy.
 
-2. Modifications
-Modifications to the Software are permitted, but such modified versions may also only be used, executed, or deployed within AnvPy.
+Redistribution
+Redistribution, sublicensing, or rebranding of the Software (including modified versions) as a standalone framework outside AnvPy is strictly prohibited.
+Redistribution within the AnvPy ecosystem is permitted, provided this license and attribution are retained.
 
+Attribution
+All copies or modifications of the Software must include this license notice and credit the original author: Amar Kumar Sahu.
 
-3. Redistribution
-Redistribution, sublicensing, or rebranding of the Software (or any modified versions) as a standalone framework outside AnvPy is prohibited.
-
-
-4. Attribution
-All copies or modifications of the Software must retain this license notice and give credit to the original author.
-
-
-5. No Warranty
+No Warranty
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE.
