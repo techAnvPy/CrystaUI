@@ -2667,4 +2667,25 @@ class Button{
 	}
 
 }
+// Loader Component - Contributed by Sayed Zahur, Github- @SayedZahur786
+class Loader {
+	constructor(text = "Loading...") {
+		this.element = document.createElement("div");
+		this.element.className = "loader";
+		const glitch = document.createElement("div");
+		glitch.className = "glitch";
+		glitch.setAttribute("data-glitch", text);
+		glitch.textContent = text;
+		this.element.appendChild(glitch);
+	}
+	mount(parent = document.body) {
+		parent.appendChild(this.element);
+	}
+	remove() {
+		if (this.element.parentNode) {
+			this.element.parentNode.removeChild(this.element);
+		}
+	}
+}
+
 
